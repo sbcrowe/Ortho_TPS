@@ -1,0 +1,112 @@
+/**
+  * Building blocks
+  *
+  * @author jh3y - jheytompkins.com
+*/
+/*
+@-webkit-keyframes building-blocks {
+  0%,
+  20% {
+    opacity: 0;
+    -webkit-transform: translateX(-300%);
+            transform: translateX(-300%); }
+  30%,
+  70% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  90%,
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(300%);
+            transform: translateX(300%); } }
+@keyframes building-blocks {
+  0%,
+  20% {
+    opacity: 0;
+    -webkit-transform: translateX(-300%);
+            transform: translateX(-300%); }
+  30%,
+  70% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  90%,
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(300%);
+            transform: translateX(300%); } }
+
+._dash-loading-callback {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0%;
+  background-color: #b9b9b998;
+  color: #2f00ff;
+  box-shadow: 50px 0 0 -5px #84ff80;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: .25s;
+}
+._dash-loading-callback:after {
+  -webkit-animation: building-blocks 2.1s ease infinite backwards;
+          animation: building-blocks 2.1s ease infinite backwards;
+  background: rgb(255, 115, 0);
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50px;
+  width: 50px; }
+
+*/
+._dash-loading-callback {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0%;
+  background-color: #7a7a7a98;
+  color: #2f00ff;
+  box-shadow: 50px 0 0 -5px #84ff80;
+  animation-delay: .25s;
+}
+
+._dash-loading-callback::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(#0000, #e67a00);
+  color: #eb9b08;
+}
+
+._dash-loading-callback::before {
+  animation-delay: 0s;
+  animation: load 1s infinite steps(10);
+  -webkit-mask-composite: destination-in;
+  -webkit-mask:
+     repeating-conic-gradient(#0000 0deg,
+        #000 1deg calc(360deg/10 - 11deg),
+        #0000     calc(360deg/10 - 10deg) calc(360deg/10)),
+     radial-gradient(farthest-side,#0000 calc(98% - 20px),#000 calc(100% - 100px));
+}
+
+/*._dash-loading-callback::after {
+  box-shadow: 55vw 0 0 -5px #ff9900;
+  animation-delay: 0s;
+}*/
+
+@keyframes load {to{transform: rotate(1turn)}}
+
+
+  
+  
