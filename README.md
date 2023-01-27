@@ -1,3 +1,6 @@
+![](assets/favicon_p.ico)
+![](assets/favicon_d.ico)
+
 # OrthoPlan and OrthoDose
 This suite of Python applications was created as part of PhD research focusing on optimising kilovoltage radiotherapy. The relevant publication can be accessed in the Journal of Applied Clinical Medical Physics: 
 
