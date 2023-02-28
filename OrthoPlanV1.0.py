@@ -42,7 +42,7 @@ import threading
 max_DOSXYZ_voxels = 48200000 
 
 #PHSP files will be recycled appropriately to match this number of histories
-simulation_histories = 20000000
+simulation_histories = 20000000 
 
 #CT ramp used by RBWH
 global HU, Den
@@ -62,8 +62,7 @@ PEGS_HN = {'Name':['AIR', 'ADIPOSE', 'MUSCLE', 'CARTILLAGE', 'C4CART', 'C4NOCART
                         '#cfcfcf',
                         '#a1a1a1',
                         '#707070',
-                        '#640082',
-                        '#e3ce32',
+                        '#640082'
                     ],
             'Number':[0,0,0,0,0,0,0,0,0]}
 
@@ -80,8 +79,7 @@ PEGS_T = {'Name':['AIR', 'LUNG', 'ADIPOSE', 'MUSCLE', 'STERNUM', 'VERTEBRAE', 'S
                         '#cfcfcf',
                         '#a1a1a1',
                         '#707070',
-                        '#640082',
-                        '#e3ce32',
+                        '#640082'
                     ],
             'Number':[0,0,0,0,0,0,0,0,0,0]}
 
@@ -96,8 +94,7 @@ PEGS_A = {'Name':['AIR', 'ADIPOSE', 'MARROW', 'MUSCLE', 'HUMERUS_HEAD', 'HUMERUS
                         '#cfcfcf',
                         '#a1a1a1',
                         '#707070',
-                        '#640082',
-                        '#e3ce32',
+                        '#640082'
                     ],
             'Number':[0,0,0,0,0,0,0,0]}
 
@@ -111,8 +108,7 @@ PEGS_CIRS = {'Name':['AIR', 'CIRS_LUNG', 'CIRS_ADIPOSE', 'CIRS_WATER', 'CIRS_MUS
                         '#083BF9',
                         '#ff0000',
                         '#707070',
-                        '#640082',
-                        '#e3ce32',
+                        '#640082'
                     ],
             'Number':[0,0,0,0,0,0,0]}
 
