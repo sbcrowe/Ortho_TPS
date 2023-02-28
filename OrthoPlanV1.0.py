@@ -97,10 +97,10 @@ phsp_histories_dict = {
 '70L' : 65025486
 }
 
-#CT ramp used by SLH
+#CT ramp used by RBWH
 global HU, Den
-HU = [-1000, -940, -770, -495, -66, -29, -3, 49, 55, 252, 854, 1358, 5980, 8335, 14264]
-Den = [0.001, 0.04, 0.2, 0.5, 0.96, 0.99, 1, 1.06, 1.07, 1.16, 1.53, 1.84, 8.1, 11.29, 19.32]
+HU = [-1024, -969, -701, -512, -91, -45, -3, 0, 24, 67, 196, 209, 422, 767, 1158, 3071]
+Den = [0.001, 0.001, 0.3, 0.5, 0.943, 0.979, 1.00, 1.018, 1.053, 1.09, 1.14, 1.152, 1.335, 1.559, 1.823, 3.115]
 
 #Default HU value ranges for different tissue presents in Tissue Segmentation tab of OrthoPlan
 PEGS_HN = {'Name':['AIR', 'ADIPOSE', 'MUSCLE', 'CARTILLAGE', 'C4CART', 'C4NOCART', 'CRANIUM', 'MANDIBLE', 'LEAD', 'GOLD'],
