@@ -44,59 +44,6 @@ max_DOSXYZ_voxels = 48200000
 #PHSP files will be recycled appropriately to match this number of histories
 simulation_histories = 20000000 
 
-#Number of histories stored in phase space files for each energy applicator combination
-phsp_histories_dict = {
-'100A' : 6249159,
-'100B' : 14033230,
-'100C' : 25199541,
-'100D' : 39166876,
-'100E' : 56118271,
-'100F' : 42046407,
-'100G' : 65481555,
-'100H' : 125990072,
-'100I' : 30712933,
-'100J' : 40706349,
-'100K' : 83995438,
-'100L' : 115549199,
-'125A' : 6647196,
-'125B' : 14953836,
-'125C' : 26996546,
-'125D' : 41996966,
-'125E' : 60338113,
-'125F' : 44888582,
-'125G' : 70079734,
-'125H' : 135115166,
-'125I' : 32784482,
-'125J' : 43511649,
-'125K' : 90037067,
-'125L' : 123887641,
-'200M' : 5843256,
-'200N' : 10514999,
-'200O' : 14081701,
-'200P' : 18946009,
-'200Q' : 17608151,
-'200R' : 23734421,
-'200S' : 30397412,
-'200T' : 43070873,
-'200U' : 35553217,
-'200V' : 44709443,
-'200W' : 67293635,
-'200X' : 59153260,
-'200Y' : 118753681,
-'70A' : 3487620,
-'70B' : 7856804,
-'70C' : 14136706,
-'70D' : 22026822,
-'70E' : 31629216,
-'70F' : 23545201,
-'70G' : 36741991,
-'70H' : 70762586,
-'70I' : 17200265,
-'70J' : 22830068,
-'70K' : 47232405,
-'70L' : 65025486
-}
-
 #CT ramp used by RBWH
 global HU, Den
 HU = [-1024, -969, -701, -512, -91, -45, -3, 0, 24, 67, 196, 209, 422, 767, 1158, 3071]
@@ -172,86 +119,39 @@ PEGS_CIRS = {'Name':['AIR', 'CIRS_LUNG', 'CIRS_ADIPOSE', 'CIRS_WATER', 'CIRS_MUS
 
 #Applicator labels
 low_energy_applicators = [
-    {'label': '2cm diameter, 20cm SSD', 'value': 'A'},
-    {'label': '3cm diameter, 20cm SSD', 'value': 'B'},
-    {'label': '4cm diameter, 20cm SSD', 'value': 'C'},
-    {'label': '5cm diameter, 20cm SSD', 'value': 'D'},
-    {'label': '6cm diameter, 20cm SSD', 'value': 'E'},
-    {'label': '8cm diameter, 30cm SSD', 'value': 'F'},
-    {'label': '10cm diameter, 30cm SSD', 'value': 'G'},
-    {'label': '14cm diameter, 30cm SSD', 'value': 'H'},
-    {'label': '6x6cm, 30cm SSD', 'value': 'I'},
-    {'label': '6x8cm, 30cm SSD', 'value': 'J'},
-    {'label': '10x10cm, 30cm SSD', 'value': 'K'},
-    {'label': '10x14cm, 30cm SSD', 'value': 'L'},
+    {'label': '2cm diameter, 30cm SSD', 'value': 'd2'},
+    {'label': '3cm diameter, 30cm SSD', 'value': 'd3'},
+    {'label': '5cm diameter, 30cm SSD', 'value': 'd5'},
+    {'label': '10cm diameter, 30cm SSD', 'value': 'd10'}
 ]
 high_energy_applicators = [
-    {'label': '5cm diameter, 50cm SSD', 'value': 'M'},
-    {'label': '6x6cm, 50cm SSD', 'value': 'N'},
-    {'label': '6x8cm, 50cm SSD', 'value': 'O'},
-    {'label': '8x8cm, 50cm SSD', 'value': 'P'},
-    {'label': '6x10cm, 50cm SSD', 'value': 'Q'},
-    {'label': '8x10cm, 50cm SSD', 'value': 'R'},
-    {'label': '10x10cm, 50cm SSD', 'value': 'S'},
-    {'label': '12x12cm, 50cm SSD', 'value': 'T'},
-    {'label': '8x15cm, 50cm SSD', 'value': 'U'},
-    {'label': '10x15cm, 50cm SSD', 'value': 'V'},
-    {'label': '15x15cm, 50cm SSD', 'value': 'W'},
-    {'label': '10x20cm, 50cm SSD', 'value': 'X'},
-    {'label': '20x20cm, 50cm SSD', 'value': 'Y'}
+    {'label': '5x7cm, 50cm SSD', 'value': '5x7'},
+    {'label': '8x8cm, 50cm SSD', 'value': '8x8'},
+    {'label': '10x10cm, 50cm SSD', 'value': '10x10'},
+    {'label': '10x20cm, 50cm SSD', 'value': '10x20'},
+    {'label': '15x15cm, 50cm SSD', 'value': '15x15'},
+    {'label': '20x20cm, 50cm SSD', 'value': '20x20'}
 ]
+
+dbs_parameters = {'d2': [4,31.5],
+                  'd3': [4,31.5], 
+                  'd5': [6,31.5], 
+                  'd10': [8,31.5], 
+                  '5x7': [9,51.5], 
+                  '8x8': [12,51.5], 
+                  '10x10': [14,51.5], 
+                  '10x20': [23,51.5], 
+                  '15x15': [21,51.5], 
+                  '20x20': [29,51.5]}
+
 def generate_original_phsp(field_size):
     #Creating a PHSP plane
-    if field_size == 'A':
-        original_phsp = genCIRC(2,0)
-    elif field_size == 'B':
-        original_phsp = genCIRC(3,0)
-    elif field_size == 'C':
-        original_phsp = genCIRC(4,0)
-    elif field_size == 'D':
-        original_phsp = genCIRC(5,0)
-    elif field_size == 'E':
-        original_phsp = genCIRC(6,0)
-    elif field_size == 'F':
-        original_phsp = genCIRC(8,0)
-    elif field_size == 'G':
-        original_phsp = genCIRC(10,0)
-    elif field_size == 'H':
-        original_phsp = genCIRC(14,0)
-    elif field_size == 'I':
-        original_phsp = genRECT(6,6,0)
-    elif field_size == 'J':
-        original_phsp = genRECT(8,6,0)
-    elif field_size == 'K':
-        original_phsp = genRECT(10,10,0)
-    elif field_size == 'L':
-        original_phsp = genRECT(14,10,0)
-    elif field_size == 'M':
-        original_phsp = genCIRC(5,0)
-    elif field_size == 'N':
-        original_phsp = genRECT(6,6,0)
-    elif field_size == 'O':
-        original_phsp = genRECT(8,6,0)
-    elif field_size == 'P':
-        original_phsp = genRECT(8,8,0)
-    elif field_size == 'Q':
-        original_phsp = genRECT(10,6,0)
-    elif field_size == 'R':
-        original_phsp = genRECT(10,8,0)
-    elif field_size == 'S':
-        original_phsp = genRECT(10,10,0)
-    elif field_size == 'T':
-        original_phsp = genRECT(12,12,0)
-    elif field_size == 'U':
-        original_phsp = genRECT(15,8,0)
-    elif field_size == 'V':
-        original_phsp = genRECT(15,10,0)
-    elif field_size == 'W':
-        original_phsp = genRECT(15,15,0)
-    elif field_size == 'X':
-        original_phsp = genRECT(20,10,0)
-    elif field_size == 'Y':
-        original_phsp = genRECT(20,20,0)
+    if field_size.starts_with('d'):
+        dimension = int(field_size.replace('d',''))
+        original_phsp = genCIRC(dimension,0)
+    else:
+        dimensions = field_size.split('x')
+        original_phsp = genRECT(dimensions[0],dimensions[1],0)
 
     return original_phsp
 
@@ -1856,18 +1756,7 @@ def stretch_CT(table):
         
     return table
 
-def write_input_file(phantom_file_path, applicator_letter, applicator, x, y, z, theta, phi, col, phsp_file_path):
-
-    if applicator_letter in ['A', 'B', 'C', 'D', 'E']:
-        phsp_ssd = 20
-    elif applicator_letter in ['F', 'G', 'H', 'I', 'J', 'K', 'L']:
-        phsp_ssd = 30
-    else:
-        phsp_ssd = 50
-
-    phsp_histories = phsp_histories_dict[applicator]
-    tot_histories = simulation_histories
-    recycles = int(tot_histories/phsp_histories)
+def write_input_file(phantom_file_path, applicator, x, y, z, theta, phi, col, phsp_file_path):
 
     dosinputfilepath = gui_save_file('Save DOSXYZnrc input file as', "DOSXYZnrc input files (*.egsinp)|*.egsinp||")
     dosinputfilepath += '.egsinp'
@@ -1881,10 +1770,10 @@ def write_input_file(phantom_file_path, applicator_letter, applicator, x, y, z, 
     f.write('/home/physics/Desktop/KV_Phantoms/{} \n' .format(phantom_file_path))
     f.write('0.521, 0.001, 0 \n')
     f.write('1, 0, 0, \n')
-    f.write('0, 2, {}, {}, {}, {}, {}, 0, {}, 1, 6.9, 4.5, {}, 0 \n' .format(round(x/10,2),round(y/10,2),round(z/10,2),round(theta,2),round(phi,2),round(col,2),phsp_ssd))
+    f.write('0, 2, {}, {}, {}, {}, {}, 0, {}, 1, {}, {}, {}, 0 \n' .format(round(x/10,2),round(y/10,2),round(z/10,2),round(theta,2),round(phi,2),round(col,2),dbs_parameters[applicator][0],dbs_parameters[applicator][1],dbs_parameters[applicator][1]))
     f.write('2, 0, 0, 0, 0, 0, 0, 0 \n')
     f.write('/home/physics/EGSnrc/egs_home/kv_phsp/' + phsp_file_path + ' \n')
-    f.write('{}, 0, 999, 33, 97, 100, 0, 0, 0, 0, , {}, 0, 0, 200, 0, 0 \n' .format(tot_histories, recycles))
+    f.write('{}, 0, 999, 33, 97, 100, 0, 0, 0, 0, , 0, 0, 0, 200, 0, 0 \n' .format(simulation_histories))
     f.write(' ######################### \n')
     f.write(' :Start MC Transport Parameter: \n')
     f.write(' \n')
@@ -3901,12 +3790,15 @@ app.layout = html.Div(
                                                                 ),
                                                                 dcc.Dropdown(
                                                                     id='kv_energy',
-                                                                    placeholder='Select kV energy...',
+                                                                    placeholder='Select energy...',
                                                                     options=[
-                                                                        {'label': '70kV ', 'value': '70'},
-                                                                        {'label': '100kV ', 'value': '100'},
-                                                                        {'label': '125kV ', 'value': '125'},
-                                                                        {'label': '200kV ', 'value': '200'},
+                                                                        {'label': '70 kV 1.20 mm Al', 'value': 'beam1'},
+                                                                        {'label': '100 kV 2.90 mm Al ', 'value': 'beam2'},
+                                                                        {'label': '100 kV 4.13 mm Al ', 'value': 'beam3'},
+                                                                        {'label': '100 kV 6.28 mm Al ', 'value': 'beam4'},
+                                                                        {'label': '300 kV 2.44 mm Cu ', 'value': 'beam5'},
+                                                                        {'label': '300 kV 2.97 mm Cu ', 'value': 'beam6'},
+                                                                        {'label': '300 kV 3.88 mm Cu ', 'value': 'beam7'}
                                                                     ],
                                                                     value=None,
                                                                     style={
@@ -5390,13 +5282,19 @@ def list_applicators(energy):
         raise PreventUpdate
 
     opts=None
-    if energy == '70':
+    if energy == 'beam1':
         opts = low_energy_applicators
-    elif energy == '100':
+    elif energy == 'beam2':
         opts = low_energy_applicators
-    elif energy == '125':
+    elif energy == 'beam3':
         opts = low_energy_applicators
-    elif energy == '200':
+    elif energy == 'beam4':
+        opts = low_energy_applicators
+    elif energy == 'beam5':
+        opts = high_energy_applicators
+    elif energy == 'beam6':
+        opts = high_energy_applicators
+    elif energy == 'beam7':
         opts = high_energy_applicators
 
     return [opts, None, None]
@@ -5436,12 +5334,12 @@ def export_set(n_clicks, energy, field, xapp, yapp, zapp, thetapp, phiapp, colap
    
         if hasattr(SCAN, 'threeD_figure'):
 
-            phsp_file_path = str(energy)+str(field)+'_COMBINED.egsphsp1'
+            phsp_file_path = str(energy)+str(field)+'.egsphsp1'
 
             phantom_file_path = gui_select_file('Please select the phantom file')
             phantom_file_name = phantom_file_path.split('\\')[-1]
             
-            write_input_file(phantom_file_name, str(field), str(energy)+str(field), xapp, yapp, zapp, thetapp, phiapp, colapp, phsp_file_path)
+            write_input_file(phantom_file_name, str(field), xapp, yapp, zapp, thetapp, phiapp, colapp, phsp_file_path)
 
             return 'button-pressed', 'Input file created successfully!', True
 
