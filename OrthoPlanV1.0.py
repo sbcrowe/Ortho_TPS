@@ -42,7 +42,7 @@ import threading
 max_DOSXYZ_voxels = 48200000 
 
 #PHSP files will be recycled appropriately to match this number of histories
-simulation_histories = 20000000 
+simulation_histories = 20000000
 
 #CT ramp used by RBWH
 global HU, Den
@@ -50,9 +50,9 @@ HU = [-1024, -969, -701, -512, -91, -45, -3, 0, 24, 67, 196, 209, 422, 767, 1158
 Den = [0.001, 0.001, 0.3, 0.5, 0.943, 0.979, 1.00, 1.018, 1.053, 1.09, 1.14, 1.152, 1.335, 1.559, 1.823, 3.115]
 
 #Default HU value ranges for different tissue presents in Tissue Segmentation tab of OrthoPlan
-PEGS_HN = {'Name':['AIR', 'ADIPOSE', 'MUSCLE', 'CARTILLAGE', 'C4CART', 'C4NOCART', 'CRANIUM', 'MANDIBLE', 'LEAD', 'GOLD'],
-            'MinCT':[-1005, -500, 0, 100, 250, 650, 900, 1000, 2000, 8500],
-            'MaxCT':[-500, 0, 100, 250, 650, 900, 1000, 2000, 8500, 15000],
+PEGS_HN = {'Name':['AIR', 'ADIPOSE', 'MUSCLE', 'CARTILLAGE', 'C4CART', 'C4NOCART', 'CRANIUM', 'MANDIBLE', 'LEAD'],
+            'MinCT':[-1005, -500, 0, 100, 250, 650, 900, 1000, 2000],
+            'MaxCT':[-500, 0, 100, 250, 650, 900, 1000, 2000, 15000],
             'Colour':[
                         '#bdf2ff',
                         '#ffbf00',
@@ -65,11 +65,11 @@ PEGS_HN = {'Name':['AIR', 'ADIPOSE', 'MUSCLE', 'CARTILLAGE', 'C4CART', 'C4NOCART
                         '#640082',
                         '#e3ce32',
                     ],
-            'Number':[0,0,0,0,0,0,0,0,0,0]}
+            'Number':[0,0,0,0,0,0,0,0,0]}
 
-PEGS_T = {'Name':['AIR', 'LUNG', 'ADIPOSE', 'MUSCLE', 'STERNUM', 'VERTEBRAE', 'SCAPULA', 'RIBS10', 'CORTICAL', 'LEAD', 'GOLD'],
-            'MinCT':[-1005, -900, -200, 0, 150, 400, 650, 900, 1300, 2000, 8500],
-            'MaxCT':[-900, -200, 0, 150, 400, 650, 900, 1300, 2000, 8500, 15000],
+PEGS_T = {'Name':['AIR', 'LUNG', 'ADIPOSE', 'MUSCLE', 'STERNUM', 'VERTEBRAE', 'SCAPULA', 'RIBS10', 'CORTICAL', 'LEAD'],
+            'MinCT':[-1005, -900, -200, 0, 150, 400, 650, 900, 1300, 2000],
+            'MaxCT':[-900, -200, 0, 150, 400, 650, 900, 1300, 2000, 15000],
             'Colour':[
                         '#bdf2ff',
                         '#9999FF',
@@ -83,11 +83,11 @@ PEGS_T = {'Name':['AIR', 'LUNG', 'ADIPOSE', 'MUSCLE', 'STERNUM', 'VERTEBRAE', 'S
                         '#640082',
                         '#e3ce32',
                     ],
-            'Number':[0,0,0,0,0,0,0,0,0,0,0]}
+            'Number':[0,0,0,0,0,0,0,0,0,0]}
 
-PEGS_A = {'Name':['AIR', 'ADIPOSE', 'MARROW', 'MUSCLE', 'HUMERUS_HEAD', 'HUMERUS_SHAFT', 'FEMUR_SHAFT', 'LEAD', 'GOLD'],
-            'MinCT':[-1005, -500, -80, 0, 250, 700, 1500, 2000, 8500],
-            'MaxCT':[-500, -80, 0, 250, 700, 1500, 2000, 8500, 15000],
+PEGS_A = {'Name':['AIR', 'ADIPOSE', 'MARROW', 'MUSCLE', 'HUMERUS_HEAD', 'HUMERUS_SHAFT', 'FEMUR_SHAFT', 'LEAD'],
+            'MinCT':[-1005, -500, -80, 0, 250, 700, 1500, 2000],
+            'MaxCT':[-500, -80, 0, 250, 700, 1500, 2000, 15000],
             'Colour':[
                         '#bdf2ff',
                         '#ffbf00',
@@ -99,11 +99,11 @@ PEGS_A = {'Name':['AIR', 'ADIPOSE', 'MARROW', 'MUSCLE', 'HUMERUS_HEAD', 'HUMERUS
                         '#640082',
                         '#e3ce32',
                     ],
-            'Number':[0,0,0,0,0,0,0,0,0]}
+            'Number':[0,0,0,0,0,0,0,0]}
 
-PEGS_CIRS = {'Name':['AIR', 'CIRS_LUNG', 'CIRS_ADIPOSE', 'CIRS_WATER', 'CIRS_MUSCLE', 'CIRS_BONE', 'LEAD', 'GOLD'],
-            'MinCT':[-1005, -900, -200, -50, 50, 200, 2000, 8500],
-            'MaxCT':[-900, -200, -50, 50, 200, 2000, 8500, 15000],
+PEGS_CIRS = {'Name':['AIR', 'CIRS_LUNG', 'CIRS_ADIPOSE', 'CIRS_WATER', 'CIRS_MUSCLE', 'CIRS_BONE', 'LEAD'],
+            'MinCT':[-1005, -900, -200, -50, 50, 200, 2000],
+            'MaxCT':[-900, -200, -50, 50, 200, 2000, 15000],
             'Colour':[
                         '#bdf2ff',
                         '#9999FF',
@@ -114,7 +114,7 @@ PEGS_CIRS = {'Name':['AIR', 'CIRS_LUNG', 'CIRS_ADIPOSE', 'CIRS_WATER', 'CIRS_MUS
                         '#640082',
                         '#e3ce32',
                     ],
-            'Number':[0,0,0,0,0,0,0,0]}
+            'Number':[0,0,0,0,0,0,0]}
 
 
 #Applicator labels
@@ -2114,7 +2114,7 @@ def write_phantom_file(imgs, b_x, b_y, b_z, folder, table):
         for y in z:
             for x in y:
 
-                f.write("{:02d}".format(x))
+                f.write("{:1d}".format(x))
 
             f.write('\n')
         f.write('\n')
