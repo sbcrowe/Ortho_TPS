@@ -142,7 +142,7 @@ dbs_parameters = {'d2': [4,31.5],
 
 def generate_original_phsp(field_size):
     #Creating a PHSP plane
-    if field_size.starts_with('d'):
+    if field_size.startswith('d'):
         dimension = int(field_size.replace('d',''))
         original_phsp = genCIRC(dimension,0)
     else:
